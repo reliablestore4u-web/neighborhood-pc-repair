@@ -1,124 +1,78 @@
-/* Global styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  color: #333;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - Neighborhood PC Repair</title>
 
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="script.js" defer></script>
 
-/* Navbar */
-.navbar {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-}
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-}
-.logo a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #0073e6;
-  font-size: 1.2rem;
-}
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-nav li { margin-left: 20px; }
-nav a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-}
-nav a.active, nav a:hover { color: #0073e6; }
+</head>
+<body>
 
-/* Page header */
-.page-header {
-  background: #f5f5f5;
-  padding: 40px 0;
-  text-align: center;
-}
-.page-header h2 { margin: 0 0 10px; font-size: 2rem; }
-.page-header p { margin: 0; color: #666; }
+<header class="site-header">
+  <div class="logo">
+    <img src="logo.png" alt="Neighborhood PC Repair Logo">
+  </div>
+  <nav class="top-nav">
+    <a href="index.html" class="">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="about.html" class="">About</a>
+    <a href="contact.html" class="">Contact</a>
+  </nav>
+  <div class="social-links">
+    <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://share.google/I4F2WnPfNLxJyZZxp" target="_blank"><i class="fab fa-google"></i></a>
+  </div>
 
-/* Contact section */
-.contact-content { padding: 40px 0; }
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-.contact-info h3, .contact-form h3 { margin-top: 0; }
-.contact-info p { margin: 10px 0; }
+</header>
 
-.hours-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.hours-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 0;
-  border-bottom: 1px dotted #ddd;
-}
-.hours-list li:last-child { border-bottom: none; }
 
-.contact-form label { display: block; margin-bottom: 15px; }
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-.contact-form textarea { resize: vertical; }
-.contact-form button.btn {
-  background: #0073e6;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.contact-form button.btn:hover { background: #005bb5; }
+<main class="scroll-reveal section">
+  <section>
+    <h1>Contact Us</h1>
+    <p>Fast, Affordable, Reliable PC & Laptop Repairs in Stoney Creek</p>
+  </section>
 
-/* Footer */
-footer {
-  background: #fff;
-  border-top: 1px solid #ddd;
-  padding: 20px 0;
-  margin-top: 40px;
-}
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.footer p { margin: 0; font-size: 0.9rem; color: #666; }
-.footer .social a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #666;
-  font-size: 0.9rem;
-}
-.footer .social a:hover { color: #0073e6; }
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p><strong>Phone:</strong> (123) 456-7890</p>
+      <p><strong>Email:</strong> info@neighborhoodpc.com</p>
+      <p><strong>Address:</strong> 123 Main Street, Stoney Creek</p>
+      <p>We are here to help you with all your tech issues — from virus removal to hardware upgrades.</p>
+    </div>
 
-/* Responsive */
-@media (max-width: 800px) {
-  .contact-grid { grid-template-columns: 1fr; }
-  nav ul { flex-direction: column; }
-  nav li { margin: 10px 0; }
-}
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Neighborhood PC Repair • 647-221-0789 • Stoney Creek
+</footer>
+
+<button class="contact-fab" onclick="toggleContactMenu()" aria-label="Open contact options">
+  <i class="fas fa-comment"></i>
+</button>
+<div class="contact-menu" id="contactMenu" role="menu" aria-label="Contact options">
+  <a href="https://wa.me/16472210789" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="mailto:youremail@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  <a href="tel:+16472210789" aria-label="Phone"><i class="fas fa-phone"></i></a>
+</div>
+
+</body>
+</html>
