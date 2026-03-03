@@ -16,7 +16,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair Logo" style="height:150px;"></a>
+      <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair Logo"></a>
     </div>
     <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <nav class="top-nav">
@@ -32,7 +32,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" style="background: url('hero-bg.jpg') center/cover no-repeat; background-size: cover;">
+  <section class="hero" style="background-image: url('hero-bg.jpg');">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Your Local PC & Laptop Expert</h1>
@@ -62,7 +62,7 @@
     </div>
   </section>
 
-  <!-- Call to Action -->
+  <!-- CTA Section -->
   <section class="contact-cta">
     <h2>Need Help with Your PC?</h2>
     <p>Contact us today and get your devices fixed quickly and reliably!</p>
@@ -85,13 +85,10 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <script>
-    // Mobile menu toggle
     function toggleMenu() {
       document.querySelector('.top-nav').classList.toggle('show');
     }
-
-    // Contact FAB toggle
-    function toggleContactMenu(){
+    function toggleContactMenu() {
       const menu = document.getElementById('contact-menu');
       menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
     }
