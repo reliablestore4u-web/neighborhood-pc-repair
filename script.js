@@ -41,13 +41,30 @@ function toggleMenu() {
   if(nav) nav.classList.toggle('show');
 }
 
-// Contact form submission (for contact.html)
+// Contact form submission via Formspree
 const contactForm = document.getElementById('contact-form');
 if(contactForm){
   const thankYou = document.getElementById('thank-you-msg');
+  
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    thankYou.style.display = 'block';
-    contactForm.reset();
+
+    const formData = new FormData(contactForm);
+    fetch(contactForm.action, {
+      method: contactForm.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if(response.ok){
+        thankYou.style.display = 'block';
+        contactForm.reset();
+      } else {
+        alert("Oops! There was a problem submitting your form.");
+      }
+    })
+    .catch(error => {
+      alert("Oops! There was a problem submitting your form.");
+    });
   });
 }
