@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Neighborhood PC Repair</title>
 
   <!-- Poppins Font -->
@@ -13,10 +13,10 @@
 </head>
 <body>
 
-  <!-- Site Header -->
+  <!-- Header -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair Logo"></a>
+      <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair Logo" style="height:150px;"></a>
     </div>
     <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <nav class="top-nav">
@@ -26,34 +26,34 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="social-links">
-   <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" style="background: url('hero-bg.jpg') center/cover no-repeat;">
+  <section class="hero" style="background: url('hero-bg.jpg') center/cover no-repeat; background-size: cover;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>About Neighborhood PC Repair</h1>
-      <p>Your local PC and laptop expert — fast, friendly, and approachable.</p>
+      <p>Your local tech neighbor — friendly, fast, and approachable.</p>
     </div>
   </section>
 
   <!-- About Content Section -->
   <section class="section about">
-  <h2>About Us</h2>
-  <p>Hi! I’m your local tech neighbor, here to help you with all those frustrating PC and laptop problems. I’ve been doing this for over 15 years — helping friends, neighbors, and clients get their devices working smoothly again.</p>
+    <h2>About Us</h2>
+    <p>Hi! I’m your local tech neighbor, here to help you with all those frustrating PC and laptop problems. I’ve been doing this for over 15 years — helping friends, neighbors, and clients get their devices working smoothly again.</p>
 
-  <p>I provide affordable and reliable repair right here in the neighborhood. There’s no storefront — I come to you, or offer convenient pickup and drop-off, whatever works best for you.</p>
+    <p>I provide affordable and reliable repair right here in the neighborhood. There’s no storefront — I come to you, or offer convenient pickup and drop-off, whatever works best for you.</p>
 
-  <p>Whether it’s a hardware hiccup, a pesky software bug, or a full system meltdown, I’ll get it sorted. Fast, friendly, and approachable support you can actually count on — just like the neighbor you can call when tech troubles hit.</p>
-</section>
+    <p>Whether it’s a hardware hiccup, a pesky software bug, or a full system meltdown, I’ll get it sorted. Fast, friendly, and approachable support you can actually count on — just like the neighbor you can call when tech troubles hit.</p>
+  </section>
 
-  <!-- Call to Action Section -->
+  <!-- Call to Action -->
   <section class="contact-cta">
-    <h2>Need Assistance?</h2>
-    <p>Reach out today and get your PC or laptop repaired quickly and reliably.</p>
+    <h2>Need Help with Your PC?</h2>
+    <p>Reach out today and get your devices fixed quickly and reliably!</p>
     <a href="contact.html" class="btn btn-secondary">Contact Us</a>
   </section>
 
@@ -65,21 +65,17 @@
   <!-- Contact FAB -->
   <button class="contact-fab" onclick="toggleContactMenu()">📞</button>
   <div class="contact-menu" id="contact-menu">
-    <a href="tel:+6472210789"><i class="fas fa-phone"></i></a>
+    <a href="tel:+16472210789"><i class="fas fa-phone"></i></a>
     <a href="mailto:reliablestore4u@gmail.com"><i class="fas fa-envelope"></i></a>
   </div>
 
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-  <!-- Scripts -->
   <script>
-    // Mobile menu toggle
     function toggleMenu() {
       document.querySelector('.top-nav').classList.toggle('show');
     }
-
-    // Contact FAB toggle
     function toggleContactMenu(){
       const menu = document.getElementById('contact-menu');
       menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
