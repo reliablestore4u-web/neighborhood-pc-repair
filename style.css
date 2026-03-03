@@ -115,6 +115,7 @@ body {
   justify-content:center;
   text-align:center;
   background: url('hero-bg.jpg') center/cover no-repeat;
+  background-size: cover;
 }
 .hero-overlay {
   position:absolute;
@@ -267,13 +268,17 @@ section.visible, .section.visible {
    Contact CTA Section
 ========================= */
 .contact-cta {
-  text-align:center;
-  padding:50px 20px;
-  background:var(--primary);
-  color:#fff;
-  border-radius:10px;
-  margin:40px auto;
-  max-width:900px;
+  text-align: center;
+  padding: 60px 20px;          /* more vertical padding */
+  background: var(--primary);  /* bright primary color */
+  color: #fff;
+  border-radius: 10px;
+  margin: 60px auto 40px auto; /* spacing above and below */
+  max-width: 900px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* subtle shadow for pop */
+}
+.contact-cta .btn {
+  margin-top: 20px;
 }
 
 /* =========================
