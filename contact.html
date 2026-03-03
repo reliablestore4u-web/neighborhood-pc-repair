@@ -10,6 +10,7 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="logo">
       <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair Logo"></a>
@@ -27,6 +28,7 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero" style="background-image: url('hero-bg.jpg');">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -35,6 +37,7 @@
     </div>
   </section>
 
+  <!-- Contact Info -->
   <section class="section">
     <h2>Contact Information</h2>
     <p>Phone: <a href="tel:+16472210789">+1 (647) 221‑0789</a></p>
@@ -42,9 +45,10 @@
     <p>Address: Servicing your neighborhood directly — no storefront.</p>
   </section>
 
+  <!-- Contact Form -->
   <section class="section">
     <h2>Send Us a Message</h2>
-    <form id="contact-form">
+    <form id="contact-form" action="https://formspree.io/f/mandpwed" method="POST">
       <label for="name">Your Name</label><br>
       <input type="text" id="name" name="name" placeholder="John Doe" required><br>
 
@@ -62,16 +66,19 @@
     </p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2026 Neighborhood PC Repair</p>
   </footer>
 
+  <!-- Contact FAB -->
   <button class="contact-fab" onclick="toggleContactMenu()">📞</button>
   <div class="contact-menu" id="contact-menu">
     <a href="tel:+16472210789"><i class="fas fa-phone"></i></a>
     <a href="mailto:reliablestore4u@gmail.com"><i class="fas fa-envelope"></i></a>
   </div>
 
+  <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 
