@@ -1,80 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services - Neighborhood PC Repair</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Neighborhood PC Repair</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="script.js" defer></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="logo">
-    <a href="index.html">
-    <img src="logo.png" alt="Neighborhood PC Repair Logo">
-    </a>
-  </div>
-  <nav class="top-nav">
-    <a href="index.html" class="">Home</a>
-    <a href="services.html" class="">Services</a>
-    <a href="about.html" class="">About</a>
-    <a href="contact.html" class="active">Contact</a>
-  </nav>
-  <div class="social-links">
-    <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
-    <!-- <a href="https://share.google/I4F2WnPfNLxJyZZxp" target="_blank"><i class="fab fa-google"></i></a> -->
-  </div>
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair Logo"></a>
+    </div>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="social-links">
+      <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </header>
 
-</header>
-
-
-<main class="scroll-reveal section">
-  <section>
-    <h1>Contact Us</h1>
-    <p>Fast, Affordable, Reliable PC & Laptop Repairs in Stoney Creek</p>
-  <!--</section>
-
-   Contact Section
-  <section class="contact-container">
-    <div class="contact-info"> -->
-      <h2>Get in Touch</h2>
-      <p><strong>Phone:</strong> (647) 221-0789</p>
-      <p><strong>Email:</strong> reliablestore4u@gmail.com</p>
-      <p><strong>Address:</strong> 178 Escarpment Drive, Stoney Creek</p>
-      <p>We are here to help you with all your tech issues — from virus removal to hardware upgrades.</p>
-   <!-- </div> -->
-
-    <div class="contact-form">
-      <h2>Send a Message</h2>
-          <form action="https://formspree.io/f/mandpwed" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <section class="hero" style="background-image: url('hero-bg.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Get in Touch</h1>
+      <p>Ready to solve your tech troubles? Let’s talk!</p>
     </div>
   </section>
 
-</main>
+  <section class="section">
+    <h2>Contact Information</h2>
+    <p>Phone: <a href="tel:+16472210789">+1 (647) 221‑0789</a></p>
+    <p>Email: <a href="mailto:reliablestore4u@gmail.com">reliablestore4u@gmail.com</a></p>
+    <p>Address: Servicing your neighborhood directly — no storefront.</p>
+  </section>
 
-<footer>
-  &copy; 2026 Neighborhood PC Repair • 647-221-0789 • Stoney Creek
-</footer>
+  <section class="section">
+    <h2>Send Us a Message</h2>
+    <form id="contact-form">
+      <label for="name">Your Name</label><br>
+      <input type="text" id="name" name="name" placeholder="John Doe" required><br>
 
-<button class="contact-fab" onclick="toggleContactMenu()" aria-label="Open contact options">
-  <i class="fas fa-comment"></i>
-</button>
-<div class="contact-menu" id="contactMenu" role="menu" aria-label="Contact options">
-  <a href="https://wa.me/16472210789" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-  <a href="mailto:reliablestore4u@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-  <a href="tel:+16472210789" aria-label="Phone"><i class="fas fa-phone"></i></a>
-</div>
+      <label for="email">Your Email</label><br>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required><br>
+
+      <label for="message">Your Message</label><br>
+      <textarea id="message" name="message" rows="4" placeholder="Tell us about your issue..." required></textarea><br>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+    <p id="thank-you-msg" style="display:none;color:green;font-weight:600;margin-top:15px;">
+      Thank you! Your message has been received. We’ll get back to you soon.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2026 Neighborhood PC Repair</p>
+  </footer>
+
+  <button class="contact-fab" onclick="toggleContactMenu()">📞</button>
+  <div class="contact-menu" id="contact-menu">
+    <a href="tel:+16472210789"><i class="fas fa-phone"></i></a>
+    <a href="mailto:reliablestore4u@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
