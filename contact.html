@@ -49,21 +49,15 @@
   <section class="section">
     <h2>Send Us a Message</h2>
     <form id="contact-form" action="https://formspree.io/f/mandpwed" method="POST">
-      <label for="name">Your Name</label><br>
-      <input type="text" id="name" name="name" placeholder="John Doe" required><br>
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+  <button type="submit" class="btn">Send Message</button>
+</form>
 
-      <label for="email">Your Email</label><br>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required><br>
-
-      <label for="message">Your Message</label><br>
-      <textarea id="message" name="message" rows="4" placeholder="Tell us about your issue..." required></textarea><br>
-
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
-
-    <p id="thank-you-msg" style="display:none;color:green;font-weight:600;margin-top:15px;">
-      Thank you! Your message has been received. We’ll get back to you soon.
-    </p>
+<p id="thank-you-msg" style="display:none;color:green;font-weight:600;">
+  Thank you! Your message has been received.
+</p>
   </section>
 
   <!-- Footer -->
