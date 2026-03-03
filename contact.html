@@ -41,15 +41,18 @@
 </section>
 
 <section class="section">
-<form action="https://formspree.io/f/mandpwed" method="POST">
-
-  <input type="hidden" name="_redirect" value="https://www.neighborhoodpcrepair.ca/">
+<form action="https://formspree.io/f/mandpwed" method="POST" id="contact-form">
 
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="email" name="email" placeholder="Your Email" required>
   <textarea name="message" rows="4" placeholder="Tell us about your issue..." required></textarea>
 
   <button type="submit" class="btn">Send Message</button>
+
+  <!-- Hidden thank-you message -->
+  <p id="thank-you-msg" style="display:none; margin-top:15px; color:green;">
+    Thank you! Your message was sent. Redirecting to homepage...
+  </p>
 </form>
 </section>
 
