@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neighborhood PC Repair</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neighborhood PC Repair | Home</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Proper FontAwesome CDN (Fixes missing icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
 <header class="site-header">
   <div class="logo">
-    <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair Logo"></a>
+    <a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair"></a>
   </div>
 
   <span class="menu-toggle" onclick="toggleMenu()">☰</span>
@@ -33,51 +32,70 @@
   </div>
 </header>
 
+<!-- Hero Section -->
 <section class="hero" style="background-image:url('hero-bg.jpg');">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Your Local PC & Laptop Expert</h1>
-    <p>Fast, friendly, and reliable tech support right in your neighborhood.</p>
+    <h1 class="hero-title">Fast, Friendly PC Repair in Your Neighborhood</h1>
+    <p class="hero-subtitle">Affordable, reliable, and convenient tech support you can trust.</p>
+    <a href="contact.html" class="btn-hero">Get Help Now</a>
   </div>
 </section>
 
-<section class="section services">
-  <h2>Our Services</h2>
+<!-- Services Section -->
+<section class="section services-section">
+  <h2 class="section-title">Our Services</h2>
   <div class="services-cards">
     <div class="card">
-      <i class="fas fa-desktop"></i>
-      <h3>PC Repairs</h3>
-      <p>Hardware & software fixes for desktops and laptops.</p>
+      <i class="fas fa-laptop-code"></i>
+      <h3>PC & Laptop Repair</h3>
+      <p>Hardware issues, virus removal, and system optimization for your devices.</p>
     </div>
     <div class="card">
-      <i class="fas fa-shield-alt"></i>
-      <h3>Virus Removal</h3>
-      <p>Clean and secure your system from malware threats.</p>
+      <i class="fas fa-memory"></i>
+      <h3>Hardware Upgrades</h3>
+      <p>RAM, SSD, GPU, and other upgrades to boost your system performance.</p>
     </div>
     <div class="card">
-      <i class="fas fa-save"></i>
+      <i class="fas fa-cogs"></i>
+      <h3>Software Support</h3>
+      <p>OS issues, software installation, troubleshooting, and updates.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-server"></i>
       <h3>Data Recovery</h3>
-      <p>Recover important files safely and quickly.</p>
+      <p>Recover lost files and backup solutions to keep your data safe.</p>
     </div>
   </div>
 </section>
 
-<section class="contact-cta">
-  <h2>Need Help With Your PC?</h2>
-  <a href="contact.html" class="btn">Contact Us</a>
+<!-- About Section (Preview) -->
+<section class="section about-preview">
+  <h2 class="section-title">Why Choose Us?</h2>
+  <p>We’re your friendly neighborhood tech experts — fast, approachable, and reliable. No storefront hassles, we come to you or provide local pickup and drop-off. Hardware glitches or software headaches, we handle it all.</p>
+  <a href="about.html" class="btn-hero">Learn More</a>
 </section>
 
+<!-- Footer -->
 <footer>
-  © 2026 Neighborhood PC Repair
+  <div class="footer-links">
+    <a href="index.html">Home</a> | 
+    <a href="services.html">Services</a> | 
+    <a href="about.html">About</a> | 
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+  <p>© 2026 Neighborhood PC Repair</p>
 </footer>
 
-<button class="contact-fab" onclick="toggleContactMenu()">
-  <i class="fas fa-phone"></i>
-</button>
-
+<!-- Contact FAB -->
+<button class="contact-fab" onclick="toggleContactMenu()"><i class="fas fa-phone"></i></button>
 <div class="contact-menu" id="contact-menu">
-  <a href="tel:+16472210789"><i class="fas fa-phone"></i></a>
-  <a href="mailto:reliablestore4u@gmail.com"><i class="fas fa-envelope"></i></a>
+  <a href="tel:+16472210789" title="Call"><i class="fas fa-phone"></i></a>
+  <a href="mailto:reliablestore4u@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
 </div>
 
 <script src="script.js"></script>
