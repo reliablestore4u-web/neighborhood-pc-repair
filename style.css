@@ -34,6 +34,7 @@ body {
   background:var(--dark);
   padding:10px 20px;
   z-index:1000;
+  flex-wrap: wrap;
 }
 .site-header .logo img {
   height:150px;
@@ -48,10 +49,59 @@ body {
 .top-nav a:hover {
   color:var(--primary);
 }
+.social-links {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+}
 .social-links a {
   margin-left:8px;
   color:#fff;
   font-size:1.1rem;
+}
+
+/* =========================
+   Mobile Menu Toggle
+========================= */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+@media(max-width:720px){
+  .menu-toggle {
+    display: block;
+  }
+  .top-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--dark);
+    width: 200px;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    z-index: 1100;
+  }
+  .top-nav.show {
+    display: flex;
+    max-height: 500px;
+    opacity: 1;
+  }
+  .top-nav a {
+    padding: 10px 15px;
+    margin: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .social-links {
+    margin-top: 10px;
+  }
 }
 
 /* =========================
@@ -64,7 +114,7 @@ body {
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:url('https://images.unsplash.com/photo-1721333089073-215a56fd710c?auto=format&fit=crop&w=1740&q=80') center/cover no-repeat;
+  background: url('hero-bg.jpg') center/cover no-repeat;
 }
 .hero-overlay {
   position:absolute;
@@ -183,33 +233,34 @@ section.visible, .section.visible {
   transform:translateY(-1px);
 }
 .contact-menu {
-  position:fixed;
-  right:20px;
-  bottom:86px;
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:12px;
-  padding:8px;
-  display:none;
-  gap:8px;
-  align-items:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.18);
-  z-index:1100;
+  position: fixed;
+  right: 20px;
+  bottom: 80px; /* slightly above the FAB */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 8px;
+  display: none;
+  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  z-index: 1200;
 }
 .contact-menu a {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:44px;
-  height:44px;
-  border-radius:10px;
-  background:#fafafa;
-  color:#333;
-  text-decoration:none;
-  font-size:1.2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #007bff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  text-decoration: none;
 }
 .contact-menu a:hover {
-  background:#efefef;
+  background: #0056b3;
 }
 
 /* =========================
@@ -270,36 +321,4 @@ body.dark .contact-menu a:hover {
   .hero-content h1{font-size:2.2rem}
   .hero-content p{font-size:1rem}
   .services-cards {grid-template-columns:1fr}
-}
-/* =========================
-   Mobile Menu Enhancements
-========================= */
-@media(max-width:720px) {
-  /* Smooth slide-down animation for mobile nav */
-  .top-nav {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-    opacity: 0;
-  }
-  .top-nav.show {
-    max-height: 500px; /* enough to show all links */
-    opacity: 1;
-  }
-
-  .top-nav a {
-    padding: 10px 15px;
-    margin: 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  /* Adjust header layout spacing */
-  .site-header {
-    flex-wrap: wrap;
-    padding: 10px;
-  }
-
-  .social-links {
-    margin-top: 10px;
-  }
 }
