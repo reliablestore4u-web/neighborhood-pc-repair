@@ -23,30 +23,3 @@ document.addEventListener("click", function(e) {
     menu.style.display = "none";
   }
 });
-
-// Formspree AJAX Submission
-const form = document.getElementById("contact-form");
-if (form) {
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { "Accept": "application/json" }
-      });
-
-      if (response.ok) {
-        document.getElementById("thank-you-msg").style.display = "block";
-        form.reset();
-      } else {
-        alert("Submission failed. Please try again.");
-      }
-    } catch (error) {
-      alert("Network error. Please try again.");
-    }
-  });
-}
