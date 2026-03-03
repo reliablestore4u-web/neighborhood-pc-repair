@@ -23,3 +23,18 @@ document.addEventListener("click", function(e) {
     menu.style.display = "none";
   }
 });
+
+// Form submission: show thank-you message and redirect (free Formspree plan workaround)
+const form = document.getElementById("contact-form");
+if (form) {
+  form.addEventListener("submit", function() {
+    // Show thank-you message
+    const msg = document.getElementById("thank-you-msg");
+    if (msg) msg.style.display = "block";
+
+    // Redirect to homepage after 3 seconds
+    setTimeout(function() {
+      window.location.href = "https://www.neighborhoodpcrepair.ca/";
+    }, 3000);
+  });
+}
