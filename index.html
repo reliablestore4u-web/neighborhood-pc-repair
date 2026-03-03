@@ -10,20 +10,58 @@
 
   <!-- Merged Styles -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Mobile menu toggle button */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    @media(max-width:720px){
+      .top-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--dark);
+        width: 200px;
+        padding: 10px;
+        border-radius: 0 0 10px 10px;
+      }
+      .top-nav.show {
+        display: flex;
+      }
+      .top-nav a {
+        margin: 10px 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Site Header -->
   <header class="site-header">
     <div class="logo">
-      <img src="images/logo.png" alt="Neighborhood PC Repair Logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Neighborhood PC Repair Logo">
+      </a>
     </div>
+
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+
     <nav class="top-nav">
       <a href="index.html" class="active">Home</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+
     <div class="social-links">
       <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
       <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -52,7 +90,7 @@
       <div class="card">
         <i class="fas fa-tools"></i>
         <h3>Hardware Repair</h3>
-        <p>Screen & component replacement for laptops/desktops.</p>
+        <p>Component replacement for laptops/desktops.</p>
       </div>
       <div class="card">
         <i class="fas fa-database"></i>
@@ -84,7 +122,7 @@
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-  <!-- Optional Script -->
+  <!-- Scripts -->
   <script>
     // Fade-in sections on scroll
     const sections = document.querySelectorAll('.section');
@@ -101,6 +139,12 @@
     function toggleContactMenu(){
       const menu = document.getElementById('contact-menu');
       menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    // Mobile menu toggle
+    function toggleMenu(){
+      const nav = document.querySelector('.top-nav');
+      nav.classList.toggle('show');
     }
 
     // Optional card animation
