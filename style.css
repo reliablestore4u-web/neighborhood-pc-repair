@@ -271,3 +271,35 @@ body.dark .contact-menu a:hover {
   .hero-content p{font-size:1rem}
   .services-cards {grid-template-columns:1fr}
 }
+/* =========================
+   Mobile Menu Enhancements
+========================= */
+@media(max-width:720px) {
+  /* Smooth slide-down animation for mobile nav */
+  .top-nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+  }
+  .top-nav.show {
+    max-height: 500px; /* enough to show all links */
+    opacity: 1;
+  }
+
+  .top-nav a {
+    padding: 10px 15px;
+    margin: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Adjust header layout spacing */
+  .site-header {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .social-links {
+    margin-top: 10px;
+  }
+}
