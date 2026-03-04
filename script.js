@@ -22,7 +22,7 @@ document.addEventListener("click", function(e) {
 });
 
 // Scroll reveal animations
-const observer = new IntersectionObserver(entries => {
+/*const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
@@ -33,7 +33,7 @@ const observer = new IntersectionObserver(entries => {
 
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.scroll-reveal, section, .section, .card').forEach(el => observer.observe(el));
-});
+});*/
 
 // Formspree AJAX Submission with Thank You
 const form = document.getElementById("contact-form");
