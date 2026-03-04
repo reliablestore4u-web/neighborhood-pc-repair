@@ -3,68 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neighborhood PC Repair | Contact</title>
+<title>Contact | Neighborhood PC Repair</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
 <header class="site-header">
-  <div class="logo"><a href="index.html"><img src="logo.png" alt="Neighborhood PC Repair"></a></div>
+  <div class="logo">
+    <a href="index.html"><img src="logo.png" alt="Logo"></a>
+  </div>
+
   <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+
   <nav class="top-nav">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="about.html">About</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
+
   <div class="social-links">
     <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
 </header>
 
-<section class="hero" style="background-image:url('hero-bg.jpg'); min-height:60vh;">
+<section class="hero" style="background-image:url('hero-bg.jpg');">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Contact Us</h1>
-    <p>Have a tech issue? Get in touch — we’ll fix it fast!</p>
+    <p>We’re here to help with your tech problems.</p>
   </div>
 </section>
 
-<section class="section scroll-reveal">
-  <h2>Send Us a Message</h2>
-  <form id="contact-form" action="https://formspree.io/f/mandpwed" method="POST">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+<section class="section">
+  <form action="https://formspree.io/f/mandpwed" method="POST" id="contact-form">
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="_replyto" required>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="4" placeholder="Tell us about your issue..." required></textarea>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
 
-    <button type="submit">Send</button>
-    <p id="thank-you-msg" style="display:none;color:green;margin-top:10px;">Thank you! Your message has been sent. Redirecting...</p>
+    <!-- Thank-you message for free-plan redirect -->
+    <p id="thank-you-msg" style="display:none; margin-top:15px; color:green;">
+      Thank you! Your message was sent. Redirecting to homepage...
+    </p>
   </form>
 </section>
 
 <footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a> | 
-    <a href="services.html">Services</a> | 
-    <a href="about.html">About</a> | 
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="footer-social">
-    <a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/neighborhoodpcrepair?igsh=Mmpua3AxOHZnbzQ4" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>
-  <p>© 2026 Neighborhood PC Repair</p>
+  © 2026 Neighborhood PC Repair
 </footer>
 
-<button class="contact-fab" onclick="toggleContactMenu()"><i class="fas fa-phone"></i></button>
+<button class="contact-fab" onclick="toggleContactMenu()">
+  <i class="fas fa-phone"></i>
+</button>
+
 <div class="contact-menu" id="contact-menu">
   <a href="tel:+16472210789"><i class="fas fa-phone"></i></a>
   <a href="mailto:reliablestore4u@gmail.com"><i class="fas fa-envelope"></i></a>
