@@ -306,7 +306,7 @@ body.dark .contact-menu a {
     margin-bottom: 15px;
   }
 
-.social-links {
+  .social-links {
   display: flex;
   gap: 10px;
 }
