@@ -1,44 +1,40 @@
 // Mobile Menu
 function toggleMenu() {
   const nav = document.querySelector('.top-nav');
-  nav.classList.toggle('show');
+  if (nav) nav.classList.toggle('show');
 }
 
 // Contact FAB
 function toggleContactMenu() {
   const menu = document.getElementById('contact-menu');
   if (!menu) return;
-  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+
+  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
 }
 
-// Close FAB when clicking outside
+// Close FAB if clicking outside
 document.addEventListener("click", function(e) {
   const menu = document.getElementById("contact-menu");
   const fab = document.querySelector(".contact-fab");
+
   if (!menu || !fab) return;
+
   if (!menu.contains(e.target) && !fab.contains(e.target)) {
     menu.style.display = "none";
   }
 });
 
-// Formspree AJAX
+// Form submission: show thank-you message and redirect (free Formspree plan workaround)
 const form = document.getElementById("contact-form");
 if (form) {
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
+  form.addEventListener("submit", function() {
+    // Show thank-you message
+    const msg = document.getElementById("thank-you-msg");
+    if (msg) msg.style.display = "block";
 
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      form.reset();
-      window.location.href = "index.html";
-    } else {
-      alert("Submission failed. Please try again.");
-    }
+    // Redirect to homepage after 3 seconds
+    setTimeout(function() {
+      window.location.href = "https://www.neighborhoodpcrepair.ca/";
+    }, 3000);
   });
 }
