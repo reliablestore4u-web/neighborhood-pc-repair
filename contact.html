@@ -58,6 +58,7 @@ enquiryForm.addEventListener('submit', async function (event) {
   sendButton.disabled = true;
   sendButton.textContent = 'Sending…';
   submissionStatus.textContent = 'Sending your enquiry. Please wait.';
+  submissionStatus.style.color = '';
 
   try {
     const response = await fetch(enquiryForm.action, {
@@ -66,7 +67,13 @@ enquiryForm.addEventListener('submit', async function (event) {
       headers: { 'Accept': 'application/json' }
     });
     if (!response.ok) {
-      submissionStatus.textContent = 'Your enquiry was not confirmed. Please check the details and try again, or call 647-221-0789.';
+      const errorData = await response.json().catch(() => ({}));
+      const messages = Array.isArray(errorData.errors)
+        ? errorData.errors.map(item => item.message || item.code).filter(Boolean)
+        : [];
+      const reason = messages.join(' ') || errorData.error || 'No additional details returned.';
+      submissionStatus.textContent = 'Submission not confirmed (HTTP ' + response.status + '). ' + reason;
+      submissionStatus.style.color = '#9b1c1c';
       submitting = false;
       sendButton.disabled = false;
       sendButton.textContent = 'Send enquiry';
