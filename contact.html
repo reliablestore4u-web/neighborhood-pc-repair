@@ -22,7 +22,7 @@
 </div></header>
 <main id="main"><section class="contact-head"><div class="wrap"><p class="eyebrow">Stoney Creek &amp; Hamilton</p><h1>Tell me what’s happening.</h1><p class="lead">Computer help for homes and small businesses, by appointment.</p></div></section>
 <section class="section" id="enquiry"><div class="wrap contact-grid">
-<form class="form" action="https://formspree.io/f/mandpwed" method="POST">
+<form id="contact-form" class="form" action="https://formspree.io/f/mandpwed" method="POST">
 <h2>Request help</h2><p class="fine">Sending a request does not book an appointment. We’ll discuss the next step and any assessment or visit fee before arranging service.</p>
 <label for="name">Your name *</label><input id="name" name="name" autocomplete="name" required maxlength="120">
 <label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
@@ -32,7 +32,12 @@
 <label for="message">What do you need help with? *</label><textarea id="message" name="message" rows="5" required maxlength="5000" placeholder="What happens? Include the device model if known. For business support, mention how many computers are affected."></textarea>
 <input type="hidden" name="_subject" value="Neighborhood PC Repair — website enquiry">
 <p class="fine">Your enquiry is submitted through Formspree so I can respond. Please don’t include passwords, payment details or private files.</p>
-<button class="button" type="submit">Send enquiry</button><p class="fine no-margin" style="margin-top:12px">Formspree will confirm your submission on the next screen. If you cannot submit, use the phone or email below.</p>
+<div style="margin:0 0 18px">
+<div id="contact-captcha"></div>
+<noscript><p>Please enable JavaScript for verification, or call/text 647-221-0789.</p></noscript>
+</div>
+<button class="button" type="submit">Send enquiry</button>
+<p id="submission-status" role="status" aria-live="polite" aria-atomic="true" style="margin-top:14px"></p><p class="fine no-margin" style="margin-top:12px">After successful submission, you’ll return to the homepage. If you cannot submit, use the phone or email below.</p>
 </form>
 <aside class="contact-aside"><h2>Prefer to contact me directly?</h2><p><strong>Call:</strong> <a href="tel:+16472210789">647-221-0789</a><br><strong>Text:</strong> <a href="sms:+16472210789">Send a text message</a><br><strong>Email:</strong> <a href="mailto:reliablestore4u@gmail.com">reliablestore4u@gmail.com</a></p><h3>What happens next?</h3><ol class="list"><li>I review your problem and may ask for more details.</li><li>We discuss a suitable next step, availability and fees.</li><li>We arrange a visit or remote support if appropriate.</li></ol><p class="fine">Service is by appointment. If I can’t answer your call, leave your name, number and a brief description of the problem.</p></aside>
 </div></section></main>
@@ -42,4 +47,94 @@
 </div></footer>
 <div class="mobile-contact" aria-label="Quick contact"><a class="button" href="contact.html#enquiry">Request help</a><a class="button secondary" href="tel:+16472210789">Call Thomas</a></div>
 
+<script>
+(function () {
+  'use strict';
+  const form = document.getElementById('contact-form');
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.getElementById('submission-status');
+  let widgetId = null;
+  let busy = false;
+  let complete = false;
+
+  function announce(message, error) {
+    status.textContent = message;
+    status.style.color = error ? '#9b1c1c' : '#173149';
+  }
+
+  window.loadContactCaptcha = function () {
+    widgetId = window.grecaptcha.render('contact-captcha', {
+      sitekey: '6LfwBx8uAAAAAEZwr8KemMuhC_8nzerva8zOzAt9',
+      size: 'compact',
+      callback: function () {
+        if (!busy && !complete) announce('Verification complete. You can send your enquiry.', false);
+      },
+      'expired-callback': function () {
+        if (!busy && !complete) announce('Verification expired. Please tick the checkbox again.', true);
+      },
+      'error-callback': function () {
+        if (!busy && !complete) announce('Verification could not load. Please refresh, or call/text 647-221-0789.', true);
+      }
+    });
+  };
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    if (busy || complete) return;
+    if (!window.grecaptcha || widgetId === null) {
+      announce('Verification is still loading. Please wait or refresh. You can also call/text 647-221-0789.', true);
+      return;
+    }
+    const token = window.grecaptcha.getResponse(widgetId);
+    if (!token) {
+      announce('Please complete the “I’m not a robot” checkbox before sending.', true);
+      return;
+    }
+    const data = new FormData(form);
+    data.set('g-recaptcha-response', token);
+    busy = true;
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    announce('Sending your enquiry. Please wait.', false);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
+      const result = await response.json().catch(function () { return null; });
+      if (!response.ok || !result || result.ok === false) {
+        const errors = result && Array.isArray(result.errors)
+          ? result.errors.map(function (item) { return item.message || item.code; }).filter(Boolean).join(' ')
+          : '';
+        announce('Submission not confirmed (HTTP ' + response.status + '). ' +
+          (errors || 'Please contact Thomas by phone or email if this continues.') +
+          ' Your details have been kept. Complete the checkbox again before retrying.', true);
+        window.grecaptcha.reset(widgetId);
+        return;
+      }
+      complete = true;
+      form.reset();
+      window.grecaptcha.reset(widgetId);
+      button.textContent = 'Enquiry sent';
+      announce('Thank you—your enquiry has been submitted. Returning to the homepage…', false);
+      setTimeout(function () {
+        window.location.replace('index.html');
+      }, 2500);
+    } catch (error) {
+      announce('We could not confirm submission. Your details have been kept. Please call/text 647-221-0789 before retrying, to avoid a duplicate enquiry.', true);
+      window.grecaptcha.reset(widgetId);
+    } finally {
+      busy = false;
+      if (!complete) {
+        button.disabled = false;
+        button.textContent = 'Send enquiry';
+      }
+    }
+  });
+})();
+
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=loadContactCaptcha&amp;render=explicit" async defer></script>
 </body></html>
