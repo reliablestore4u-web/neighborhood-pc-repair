@@ -32,7 +32,7 @@
 <label for="message">What do you need help with? *</label><textarea id="message" name="message" rows="5" required maxlength="5000" placeholder="What happens? Include the device model if known. For business support, mention how many computers are affected."></textarea>
 <input type="hidden" name="_subject" value="Neighborhood PC Repair — website enquiry">
 <p class="fine">Your enquiry is submitted through Formspree so I can respond. Please don’t include passwords, payment details or private files.</p>
-<button class="button" type="submit">Send enquiry</button><p class="fine no-margin" style="margin-top:12px">After successful submission, you’ll return to the homepage. If you cannot submit, use the phone or email below.</p>
+<button class="button" type="submit">Send enquiry</button><p class="fine no-margin" style="margin-top:12px">Formspree will confirm your submission on the next screen. If you cannot submit, use the phone or email below.</p>
 </form>
 <aside class="contact-aside"><h2>Prefer to contact me directly?</h2><p><strong>Call:</strong> <a href="tel:+16472210789">647-221-0789</a><br><strong>Text:</strong> <a href="sms:+16472210789">Send a text message</a><br><strong>Email:</strong> <a href="mailto:reliablestore4u@gmail.com">reliablestore4u@gmail.com</a></p><h3>What happens next?</h3><ol class="list"><li>I review your problem and may ask for more details.</li><li>We discuss a suitable next step, availability and fees.</li><li>We arrange a visit or remote support if appropriate.</li></ol><p class="fine">Service is by appointment. If I can’t answer your call, leave your name, number and a brief description of the problem.</p></aside>
 </div></section></main>
@@ -41,57 +41,5 @@
 <div class="footer-links"><a href="contact.html">Contact Thomas</a><a href="https://www.facebook.com/people/Neighborhood-PC-Repair/61579330904599/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/neighborhoodpcrepair/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
 </div></footer>
 <div class="mobile-contact" aria-label="Quick contact"><a class="button" href="contact.html#enquiry">Request help</a><a class="button secondary" href="tel:+16472210789">Call Thomas</a></div>
-<script>
-const enquiryForm = document.querySelector('form.form');
-const sendButton = enquiryForm.querySelector('button[type="submit"]');
-const submissionStatus = document.createElement('p');
-submissionStatus.setAttribute('role', 'status');
-submissionStatus.setAttribute('aria-live', 'polite');
-enquiryForm.append(submissionStatus);
-let submitting = false;
 
-enquiryForm.addEventListener('submit', async function (event) {
-  event.preventDefault();
-  if (submitting) return;
-  const data = new FormData(enquiryForm);
-  submitting = true;
-  sendButton.disabled = true;
-  sendButton.textContent = 'Sending…';
-  submissionStatus.textContent = 'Sending your enquiry. Please wait.';
-  submissionStatus.style.color = '';
-
-  try {
-    const response = await fetch(enquiryForm.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      const messages = Array.isArray(errorData.errors)
-        ? errorData.errors.map(item => item.message || item.code).filter(Boolean)
-        : [];
-      const reason = messages.join(' ') || errorData.error || 'No additional details returned.';
-      submissionStatus.textContent = 'Submission not confirmed (HTTP ' + response.status + '). ' + reason;
-      submissionStatus.style.color = '#9b1c1c';
-      submitting = false;
-      sendButton.disabled = false;
-      sendButton.textContent = 'Send enquiry';
-      return;
-    }
-    enquiryForm.reset();
-    sendButton.textContent = 'Enquiry sent';
-    submissionStatus.textContent = 'Thank you—your enquiry has been submitted. Returning to the homepage…';
-    setTimeout(function () {
-      window.location.replace('index.html');
-    }, 2500);
-  } catch (error) {
-    submissionStatus.textContent = 'We could not confirm submission. Your details are still here. Please call or text 647-221-0789 before sending again to avoid a duplicate.';
-    submitting = false;
-    sendButton.disabled = false;
-    sendButton.textContent = 'Send enquiry';
-  }
-});
-
-</script>
 </body></html>
